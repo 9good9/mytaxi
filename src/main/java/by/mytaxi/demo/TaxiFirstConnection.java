@@ -28,9 +28,9 @@ public class TaxiFirstConnection {
         try (Connection connection = getConnection();){
             //log.info("Database catalog is " + getConnection().getCatalog());
            CallableStatement statement = connection.prepareCall(DatabaseQueries.CALL_getAll_Shifts); //создание объекта запроса
-           ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                log.info(resultSet.getString("id"));
+           ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                log.info(rs.getString("id"));
             }
             /*for (int i = 0; i < 3000; i++){
                 statement.setInt(1, i);
